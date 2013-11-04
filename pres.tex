@@ -56,18 +56,18 @@
   %nom des auteurs, du papier, publication
   
   \begin{block}{Auteurs}
-  \begin{itemize}
-    \item Simone Teufel, Advaith Siddharthan, Dan Tidhar
-    \item Université de Cambridge
-    \item NLIP Research Group
-  \end{itemize}
+	  \begin{itemize}
+		\item Simone Teufel, Advaith Siddharthan, Dan Tidhar
+		\item Université de Cambridge
+		\item NLIP Research Group
+	  \end{itemize}
   \end{block}
 
   \begin{block}{Impact}
-  \begin{itemize}
-    \item Conference on Empirical Methods in NLP - Sydney 2006
-    \item 15 citations
-  \end{itemize}
+	  \begin{itemize}
+		\item Conference on Empirical Methods in NLP - Sydney 2006
+		\item 15 citations
+	  \end{itemize}
   \end{block}
 \end{frame}
 
@@ -78,16 +78,16 @@
   %différence entre fonction et motivation
 
   \begin{block}{Motivation}
-  \begin{itemize}
-    \item Propriété subjective
-    \item Relation avec l'analyse d'opinion
-  \end{itemize}
+	  \begin{itemize}
+		\item Propriété subjective
+		\item Relation avec l'analyse d'opinion
+	  \end{itemize}
   \end{block}
 
   \begin{block}{Fonction}
-  \begin{itemize}
-    \item Informe sur la relation entre les articles
-  \end{itemize}
+	  \begin{itemize}
+		\item Informe sur la relation entre les articles
+	  \end{itemize}
   \end{block}
 \end{frame}
 
@@ -95,12 +95,12 @@
   \frametitle{Quel rôle a une citation dans un papier ?}
 
   \begin{block}{Moravcsik \& Murugesan, 1975}
-  \begin{itemize}
-    \item Conceptuel / Opérationnel
-    \item Évolution / Juxtaposition
-    \item Organique / Superficiel
-    \item Confirmation / Négation
-  \end{itemize}
+	  \begin{itemize}
+		\item Conceptuel / Opérationnel
+		\item Évolution / Juxtaposition
+		\item Organique / Superficiel
+		\item Confirmation / Négation
+	  \end{itemize}
   \end{block}
 \end{frame}
 
@@ -110,18 +110,18 @@
   %motivations (sentiment analisys, ...)
   
   \begin{block}{Approche quantitative insuffisante}
-  \begin{itemize}
-    \item "Politeness, policy or piety" (Ziman, 1968)
-    \item 40\% de citations superficielles
-  \end{itemize}
+	  \begin{itemize}
+		\item "Politeness, policy or piety" (Ziman, 1968)
+		\item 40\% de citations superficielles
+	  \end{itemize}
   \end{block}
   
   \begin{block}{Applications}
-  \begin{itemize}
-    \item Calcul du facteur d'impact
-    \item Résumé d'article
-    \item RI
-  \end{itemize}
+	  \begin{itemize}
+		\item Calcul du facteur d'impact
+		\item Résumé d'article
+		\item RI
+	  \end{itemize}
   \end{block}
 \end{frame}
 
@@ -141,18 +141,18 @@
   %Objectifs du papier, approche manuelle + apprentissage
   
   \begin{block}{Schéma d'annotations}
-  \begin{itemize}
-    \item Orienté Faiblesse / Similarité / Contraste
-    \item Règles et consignes d'annotation
-    \item Traits pertinents pour du ML
-  \end{itemize}
+	  \begin{itemize}
+		\item Orienté Faiblesse / Similarité / Contraste
+		\item Règles et consignes d'annotation
+		\item Traits pertinents pour du ML
+	  \end{itemize}
   \end{block}
   
   \begin{block}{Expériences}
-  \begin{itemize}
-  	\item Procéder à une annotation manuelle
-    \item Répliquer l'annotation manuelle avec du ML
-  \end{itemize}
+	  \begin{itemize}
+	  	\item Procéder à une annotation manuelle
+		\item Répliquer l'annotation manuelle avec du ML
+	  \end{itemize}
   \end{block}
 \end{frame}
 
@@ -190,19 +190,19 @@
   %source, stats sur la taille des données
   
   \begin{block}{Source}
-  \begin{itemize}
-    \item Computation and Language E-Print Archive
-    \item 360 articles
-  \end{itemize}
+	  \begin{itemize}
+		\item Computation and Language E-Print Archive
+		\item 360 articles
+	  \end{itemize}
   \end{block}
   
   \begin{block}{Prétraitement}
-  \begin{itemize}
-    \item Transformé en XML
-    \item Balisage des titres, auteurs et références
-    \item Analyse des références, identification des noms d'auteurs
-    \item Analyse du texte, identification des références
-  \end{itemize}
+	  \begin{itemize}
+		\item Transformé en XML
+		\item Balisage des titres, auteurs et références
+		\item Analyse des références, identification des noms d'auteurs
+		\item Analyse du texte, identification des références
+	  \end{itemize}
   \end{block}
 \end{frame}
 
@@ -210,16 +210,40 @@
   \frametitle{L'annotation manuelle des données}
   %règles, quantités, ...
   
-  \begin{block}{}
-  \begin{itemize}
-    \item 
-  \end{itemize}
+  \begin{block}{Données}
+	  \begin{itemize}
+		\item 26 articles du corpus
+		\item 120 000 mots
+		\item 548 citations
+	  \end{itemize}
   \end{block}
   
-  \begin{block}{}
-  \begin{itemize}
-    \item 
-  \end{itemize}
+  \begin{block}{Annotation}
+  	Consignes :
+	  \begin{itemize}
+		\item Description des catégories
+		\item Environ 150 règles
+		\item Aides à la décision en cas d'ambiguité
+	  \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Remarques sur l'annotation manuelle}  
+  \begin{block}{Difficultés}
+	  \begin{itemize}
+		\item Degré de subjectivité
+		\item Peu de négativité : "Meekness effect"
+		\item PSim / PUse
+		\item PBas / PUse
+	  \end{itemize}
+  \end{block}
+  
+  \begin{block}{Aspect "Opinion"}
+	  \begin{itemize}
+		\item Classes "négatives" et "positives"
+		\item Corrélation avec la distribution des adjectifs positifs et négatifs
+	  \end{itemize}
   \end{block}
 \end{frame}
 
@@ -227,16 +251,18 @@
   \frametitle{Résultats de l'annotation manuelle}
   %Kappa, distribution, ...
   
-  \begin{block}{}
-  \begin{itemize}
-    \item 
-  \end{itemize}
+  \begin{block}{Résultats}
+  	Accord entre annotateurs: Kappa = .72
+  	(n=12, N=548, k=3)
   \end{block}
   
-  \begin{block}{}
-  \begin{itemize}
-    \item 
-  \end{itemize}
+  \begin{block}{Distribution}
+	  \begin{itemize}
+		\item 60\% strictement neutres
+		\item 18.9\% dans les catégories d'usage
+		\item 7.6\% dans les catégories de contraste neutres
+		\item 4.1\% clairement négatives
+	  \end{itemize}
   \end{block}
 \end{frame}
 
