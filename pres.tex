@@ -111,23 +111,79 @@
 \label{sec:machinelearning}
 
 \begin{frame}
-  \frametitle{Du machine learning}
+\frametitle{Du machine learning}
   % KPPV (3), 10-fold
+  \begin{itemize} 
+  \item Algorithme des 3 plus proches voisins, avec validation en 10-fold.
+  \item Corpus original de 116 articles, 2829 citation, annotées manuellement.
+  \end{itemize}
+  \begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{distrib}
+    \caption{Distribution des citations}
+  \end{figure}
 \end{frame}
 
 \begin{frame}
   \frametitle{Les features utilisées}
-  %cue phrases, location, ...
+  Usage intensif de cue phrases
+  \begin{itemize}
+  \item 20 clusters de cue phrases verbales, chacune ``associée'' à un
+    type de citation (eg : ``agree with'', ``be derived from'', ``be
+    limited to'', ...)
+  \item 12 features pour dénoter la présence de 892 cue phrases
+    récupérées manuellement ($\approx 75$ par catégorie).
+  \item Reconnaissance du meta-discours (``as far as we are aware'',
+    ...) via une grammaire de 1762 cue phrases
+  \end{itemize}
+  Reconnaissance de l'agent
+    \begin{itemize}
+    \item 185 patterns pour reconnaître l'agent
+    \item Distinction entre 2 agents : les auteurs et le reste
+    \end{itemize}
+  Autres features
+  \begin{itemize}
+  \item Mode, temps, voix
+  \item localisation (globale, intra-paragraphe,
+    intra-section)
+  \item Auto-citation
+  \end{itemize}
+
+%cue phrases, location, ...
 \end{frame}
 
 \begin{frame}
   \frametitle{Résultats de la classification automatique}
+  \begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{resML}
+    \caption{Résultats 10-fold de 3-PPV}
+    \label{fig:resml12}
+  \end{figure}
   %résultats sur les 12 catégories, Kappa, F-measure
 \end{frame}
 
 \begin{frame}
   \frametitle{Résultats sur des classes moins nombreuses}
   %tableaux et Kappas sur les 3/4 classes
+     \begin{columns}[t]
+      \begin{column}{0.5\textwidth}
+        \begin{figure}[h]
+          \centering
+          \includegraphics[width=\textwidth]{shortres4}
+          \caption{Résultats sur 4 catégories}
+          \label{fig:res4}
+        \end{figure}
+      \end{column}
+      \begin{column}{0.5\textwidth}
+       \begin{figure}[h]
+          \centering
+          \includegraphics[width=0.75\textwidth]{shortres3}
+          \caption{Résultats sur 3 catégories}
+          \label{fig:res3}
+        \end{figure}
+      \end{column}
+   \end{columns}
 \end{frame}
 
 \section{Conclusion}
@@ -135,16 +191,30 @@
 
 \begin{frame}
   \frametitle{Des premières pistes pour une nouvelle tâche}
+  \begin{itemize}
+  \item Premiers résultats encourageants 
+  \item Une liste de features assez importante
+  \end{itemize}
+
   %Premiers résultats "encourageants"
 \end{frame}
 
 \begin{frame}
   \frametitle{Quelques limites présentes}
+  \begin{itemize}
+  \item Kappa max de 0.72 (accord inter-annotateurs) 
+  \item Des features en très (trop ?) grand nombre 
+  \item Une annotation manuelle très restrictive (150 règles à respecter)
+  \end{itemize}
   %Kappa max de 0.72, annotation manuelle très restrictive, ...
 \end{frame}
 
 \begin{frame}
   \frametitle{Questions ?}
+  \begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{questions}
+  \end{figure}
 \end{frame}
 
 
