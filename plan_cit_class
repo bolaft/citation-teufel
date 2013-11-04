@@ -1,0 +1,142 @@
+INTRODUCTION
+=====================================================
+		- Citation function
+			- Rhetorical function of a citation
+			- Relationship with sentiment classes
+		- Applications
+			- IF Calculation
+			- Text summary
+			- Citation indexer
+=====================================================
+		Proposed: annotation scheme
+		- Reliable
+		- Machine learning framework
+			- Shallow features
+			- Linguistically-inspired features
+=====================================================
+
+CONTEXTE
+=====================================================
+	Why do researchers cite papers ?
+	- Annotation schemes for citation motivation
+	- Interest:
+		- Bibliometrics
+		- Document retrieval
+=====================================================
+	Citation motivation != citation function
+	- Moravcsik & Murugesan, 1975:
+		- conceptual / operational
+		- evolutionary / juxtapositional
+		- organic / perfunctory
+		- confirmative / negational
+=====================================================
+	N2K nature of relationships
+	- Quantitative approach insufficient
+	- Discourse-aware citation indexer needed
+	- Hypothetical search tool
+=====================================================
+
+ANNOTATION SCHEME
+=====================================================
+	Scheme basics:
+	- Scheme based on empirical work
+	- Designed for IR applications
+	- 12 categories to mark relationships
+	- Each citation is labelled with one category
+=====================================================
+	<< TABLE OF CATEGORIES >>
+=====================================================
+	Annotation guidelines:
+	- Annotators only mark explicite citation functions
+	- Annotators must point to textual evidence
+	- No usage of in depth knowledge of field or author
+=====================================================
+	Difficulties:
+	- Subjective judgement still required
+	- Rareness of negative citations
+		- "Meekness" effect
+	- PSim / PBas / PUse : lack of excplicity
+=====================================================
+	Unit of annotation
+	- Full citation
+	- Names of authors outside of formal citation
+		- Problematic recognition of other namings
+=====================================================
+	Sentiment aspect
+	- "Negative" and "Positive" sets
+	- Distribution of positive and negative adjectives
+	- But focus on use and contrast
+=====================================================
+
+ANNOTATION EXPERIMENT
+=====================================================
+	Data:
+	- Source: Computation and Language E-Print Archive
+	- 360 articles
+=====================================================
+	Pre-processing:
+	- Transformed into XML
+	- Metadata marked up
+	- Reference list parsed
+	- Running text parsed by citation parser
+=====================================================
+	Annotation:
+	- 3 annotators
+	- XML/XSLT annotation interface
+	- 26 articles
+	- 120 000 words
+	- 548 citations
+=====================================================
+	Results:
+	- Inter-annotator agreement: K = .72
+		n=12, N=548, k=3
+	- Skewed: 60% in "Neutral"
+	- 18.9% in usage categories
+	- 7.6% in neutral contrastive categories
+	- 4.1% in clearly negative categories
+=====================================================
+
+AUTOMATIC RECOGNITION FEATURES
+=====================================================
+	Cue phrases
+	- Meta-discourse
+	- Finite grammar over strings (1762 cue phrases)
+	- POS-based recogniser of agents
+		- 2 agent types
+		- 185 patterns
+=====================================================
+	Annotator-identified cues
+	- 892 cue phrases extracted manually
+	- 12 features
+=====================================================
+	Other features
+	- Verb tense and voice
+	- Modality
+	- Sentence location
+	- Self-citation
+=====================================================
+
+RESULTS
+=====================================================
+	Evaluation corpus
+	- 116 articles from own corpus
+	- 2829 manually tagged citations
+=====================================================
+	Process
+	- Tokenisation
+	- POS-tagging
+	- Automatic feature determination (e.g. self-citations)
+	- Machie learning on feature vectors
+=====================================================
+	Results
+	<< result tables >>
+=====================================================
+
+CONCLUSION
+=====================================================
+	- New task: annotation of citation function
+	- Focus on weakness, similarity and contrast
+	- Manual experiment (K=.72)
+	- Machine learning experiment (K=.57)
+	- Currently experimenting with IR
+=====================================================

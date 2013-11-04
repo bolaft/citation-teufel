@@ -1,0 +1,136 @@
+ABSTRACT:
+
+Citation function = author's reason for citing a paper.
+Applications of auto reco : IF calculation, text summary, citation indexer.
+
+proposed: annotation scheme.
+=> is reliable
+=> presents a supervised machine learning framework to classify citation function
+uses both shallow and linguistically-inspired features.
+Strong relationship between citation function and sentiment classification (opinion mining)
+
+INTRO:
+
+Why do researchers cite papers is a question posed in disc. analysis, socio of science, and info sciences. OLD.
+Many annotation schemes for cit. motivation exists.
+Interest because: bibliometrics used to measure impact of researcher's work via number of incoming cits.
+However, quantitative bad ("politeness, policy, piety")
+Schemes for cit. motivation != cit. function.
+mot = why has cited paper, func = role of cit in paper
+Best func. : Moravcsik & Murugesan, 1975; 4 dims:
+	- conceptual / operational
+	- evolutionary / juxtapositional
+	- organic / perfunctory
+	- confirmative / negational
+=> 40% cits perfunctory => citation-counting BAD
+
+Cits. can be used for search purposes in doc retrieval (eg ISI; gscholar, CiteSeer)
+But do not give nature of RELATIONS beteen articles (validates or criticizes ? etc.)
+Hypothetical search tools: displays differences and similarities between a target paper and papers that it cites and that cite it.
+CiteSeer snippet not sufficient
+wish for a discourse-aware citation indexer which finds sentences stating contrast or continuation and associates them with the citation
+
+authors' annotation scheme based on empirical work in content citation analysis
+is designed for information retrieaval apps (cit indexing, bibliometric measures)
+12 categories to mark rels w other works
+each cit labelled with 1 cat
+
+top level four way distinction:
+- explicit statement of weakness
+- contrast or comparison (4 cats)
+- agreement/usage/compatibility (6 cats)
+- neutral category
+
+paper produces :
+- proof that scheme can be reliably annotated by independent coders
+- results of a superised machine learning experiment which replicates the human annotation
+
+ANNOTATION SCHEME FOR CITATIONS
+
+<<Description of 12 categories>>
+
+only mark explicitly signalled citation functions (eg "better", "used by us")
+annotators point to textual evidence
+annotators don't use in depth knowledge of field or author
+guidelines describe categories with examples, provide decision tree and give decision aids in ambiguous cases
+
+Difficulties:
+subjective judgement still necessary to assign a single tag in an unseen context
+negative cits are rare, maybe bec. potentially politically dangerous => "meekness" effect, evidence found in data
+choice between PSim and PUse: when authors do not want to admit or stress that they are using another's method
+choice between PBas and PUse
+
+Unit of annotation: full citation (via auto cit processor) & names of authors of cited paper anywhere outside of formal citation context (ie without date)
+other forms of naming not recognisable well enough (eg pronouns, initials) => cause pb with context dependency
+
+not always pos to decide cit func on sentene alone
+context most cases constrained to paragraph
+
+first 2 sets "negative", third "positive"
+but sentiment aspect not all; more concerned about use and contrast
+however distribution of positive and neg adj show connection
+
+Data:
+corpus of 360 conference articles in comp lingui from Computation and Language E-Print Archive
+=> transformed into XML
+=> headlines, titles, authors, ref list items marked up
+=> ref lists are parsed, cited authorss' names identified
+=> cit parser finds cits and author names in running text & marks them up
+=> human annotation via XML/XSLT
+		3 annotators, 26 articles, 120 000 words & 548 cits
+
+inter-annotator agreement : Kappa=.72 (n=12, N=548, k=3) (quite high)
+=> 60% in cat Neut
+=> 18.9 in usage cats (PUse, PModi, PBas)
+=> 4.1 in clearly neg (Weak, CoCo-)
+=> 7.6 in neutral contrastive (CoCoR0, CoCoXY, CoCoGM)
+
+FEATURES FOR AUTOMATIC RECOGNITION OF CITATION FUNCTION
+
+Cue phrases
+
+meta-discourse VS object-level discourse
+eg "As far as we are aware": cue phrases = meta-discourse
+Methods:
+1) Finite grammar over strings with placeholder POS (1762 cue phrases)
+2) POS-based recogniser of agents and recogniser for specific actions these agents perform.
+=> Two agent types (authors and others) modelled by 185 patterns
+20 different action types model the main verbs involved in meta-discourse
+=> eg, "propose, present..." for action type "presentation"
+20 verb clusters
+negation recognized but rare (27 out of 40 possible clusters found in corpus)
+verb object pair acquisition automated for 2 types of cue phrases, plan on expanding to others
+
+Cues identified by annotators
+
+Annotators typed in meta-descr cue phrases that justify their choice
+892 cue phrases extracted by hand from the list
+12 features that recorded cues associated to a cat by annotators
+
+Other features
+
+Verb tense and voice
+Modality (if there is a modifier auxilary and which one)
+Location of sentence (eg PMot at begin, like Weak, while CoCo at end of articles)
+More subtle location used as well
+can tell if points to own previous work, and that re-use proba is then higher
+
+RESULTS
+
+evaluation corpus = 116 articles taken from own corpus, not areas where dev & training
+=> 2829 cits, each manually tagged
+papers are then tokenised & POS-tagged
+other features are auto dfetermined (eg self-cit)
+then machine learning on feature vectors
+10-fold cross validation (table)
+IBM algorithm
+Macro-F, Kappa, Perc acc
+Cit cat (12, top-level classes (4), sentiment analysis (3)
+
+CONCLUSION
+
+New task: annotation of citation function in scientific text
+Annot scheme concentrates on weakness, sim & contrast between work & other work
+Machine learning experiments
+Human: .72, ML: .57
+Current: experiment with cit processing in IR
